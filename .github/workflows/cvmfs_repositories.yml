@@ -7,6 +7,6 @@ jobs:
     - uses: actions/checkout@v2
     - uses: petricm/github-action-cvmfs@main
       with:
-        cvmfs_repositories: 'ilc.desy.de'
+        cvmfs_repositories: ilc.desy.de
     - name: Setup CernVM-FS
       run: cat /etc/cvmfs/default.local && ls /cvmfs/ilc.desy.de/
