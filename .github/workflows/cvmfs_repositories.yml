@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: cvmfs-contrib/github-action-cvmfs@main
+    - uses: petricm/github-action-cvmfs@main
       with:
-        cvmfs_repositories: 'grid.cern.ch'
+        cvmfs_repositories: 'ilc.desy.de'
     - name: Setup CernVM-FS
-      run: cat /etc/cvmfs/default.local && ls /cvmfs/grid.cern.ch/ && cvmfs_config showconfig grid.cern.ch
+      run: cat /etc/cvmfs/default.local && ls /cvmfs/ilc.desy.de/
