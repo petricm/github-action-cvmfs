@@ -7,11 +7,11 @@ sudo apt-get -q update
 sudo apt-get -q -y install cvmfs cvmfs-config-default
 rm -f cvmfs-release-latest_all.deb
 
-echo $INPUT_CVMFS_REPOSITORIES
+echo ${{ input.cvmfs_repositories }}
 
 # Setup default.local
 sudo mkdir -p /etc/cvmfs
-echo "CVMFS_REPOSITORIES=${INPUT_CVMFS_REPOSITORIES:-atlas.cern.ch,atlas-condb.cern.ch,grid.cern.ch}" | sudo tee /etc/cvmfs/default.local
+echo "CVMFS_REPOSITORIES=${{ input.cvmfs_repositories }}" | sudo tee /etc/cvmfs/default.local
 echo "CVMFS_HTTP_PROXY=${INPUT_CVMFS_HTTP_PROXY:-DIRECT}" | sudo tee -a /etc/cvmfs/default.local
 echo "CVMFS_USE_CDN=yes" | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
