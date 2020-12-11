@@ -16,9 +16,3 @@ echo "CVMFS_CACHE_BASE='/var/lib/cvmfs'"          | sudo tee -a /etc/cvmfs/defau
 echo "CVMFS_REPOSITORIES='${CVMFS_REPOSITORIES}'" | sudo tee /etc/cvmfs/default.local
 echo "CVMFS_USE_CDN='${CVMFS_USE_CDN}'"           | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
-
-# Configure autofs
-echo "+dir:/etc/auto.master.d" | sudo tee /etc/auto.master
-sudo mkdir -p /etc/auto.master.d
-echo "/cvmfs /etc/auto.cvmfs" | sudo tee /etc/auto.master.d/cvmfs.autofs
-sudo service autofs start
