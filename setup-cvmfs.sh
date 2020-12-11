@@ -9,11 +9,11 @@ rm -f cvmfs-release-latest_all.deb
 
 # Setup default.local
 sudo mkdir -p /etc/cvmfs
-echo "CVMFS_DNS_MIN_TTL='${CVMFS_DNS_MIN_TTL}'"   | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_QUOTA_LIMIT='${CVMFS_QUOTA_LIMIT}'"   | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_HTTP_PROXY='${CVMFS_HTTP_PROXY}'"     | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_CACHE_BASE='/var/lib/cvmfs'"          | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_REPOSITORIES='${CVMFS_REPOSITORIES}'" | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_USE_CDN='${CVMFS_USE_CDN}'"           | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_DNS_MIN_TTL='${CVMFS_DNS_MIN_TTL}'"       | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_QUOTA_LIMIT='${CVMFS_QUOTA_LIMIT}'"       | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_HTTP_PROXY='${CVMFS_HTTP_PROXY}'"         | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_CACHE_BASE='/var/lib/cvmfs'"              | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_REPOSITORIES='${CVMFS_REPOSITORIES}'"     | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_USE_CDN='${CVMFS_USE_CDN}'"               | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_CLIENT_PROFILE='${CVMFS_CLIENT_PROFILE}'" | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
-sudo cvmfs_config probe
