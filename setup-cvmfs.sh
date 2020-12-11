@@ -7,13 +7,14 @@ sudo apt-get -q update
 sudo apt-get -q -y install cvmfs cvmfs-config-default
 rm -f cvmfs-release-latest_all.deb
 
-echo ${{ input.cvmfs_repositories }}
-
 # Setup default.local
 sudo mkdir -p /etc/cvmfs
-echo "CVMFS_REPOSITORIES=${{ input.cvmfs_repositories }}" | sudo tee /etc/cvmfs/default.local
-echo "CVMFS_HTTP_PROXY=${INPUT_CVMFS_HTTP_PROXY:-DIRECT}" | sudo tee -a /etc/cvmfs/default.local
-echo "CVMFS_USE_CDN=yes" | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_DNS_MIN_TTL={CVMFS_DNS_MIN_TTL}"    | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_QUOTA_LIMIT=${CVMFS_QUOTA_LIMIT}"   | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_HTTP_PROXY=${CVMFS_REPOSITORIES}"   | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_CACHE_BASE='/var/lib/cvmfs'"        | sudo tee -a /etc/cvmfs/default.local
+echo "CVMFS_REPOSITORIES=${CVMFS_REPOSITORIES}" | sudo tee /etc/cvmfs/default.local
+echo "CVMFS_USE_CDN=${CVMFS_USE_CDN}"           | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
 
 # Configure autofs
