@@ -16,3 +16,4 @@ echo "CVMFS_CACHE_BASE='/var/lib/cvmfs'"          | sudo tee -a /etc/cvmfs/defau
 echo "CVMFS_REPOSITORIES='${CVMFS_REPOSITORIES}'" | sudo tee -a /etc/cvmfs/default.local
 echo "CVMFS_USE_CDN='${CVMFS_USE_CDN}'"           | sudo tee -a /etc/cvmfs/default.local
 sudo cvmfs_config setup
+sudo cvmfs_config probe
