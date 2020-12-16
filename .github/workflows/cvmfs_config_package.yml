@@ -10,6 +10,7 @@ jobs:
         cvmfs_repositories: 'pilot.eessi-hpc.org'
         cvmfs_http_proxy: 'DIRECT'
         cvmfs_client_profile: ''
+        cvmfs_quota_limit: ''
         cvmfs_config_package: 'https://github.com/EESSI/filesystem-layer/releases/download/v0.2.3/cvmfs-config-eessi_0.2.3_all.deb'
         run_local_checkout: 'true'
     - name: Setup CernVM-FS
