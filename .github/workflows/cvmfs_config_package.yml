@@ -15,9 +15,9 @@ jobs:
       run: |
         echo "### Dump default.local ###"
         cat /etc/cvmfs/default.local
+        echo "### Try cvmfs_config probe ###"
+        sudo cvmfs_config probe
         echo "### Test /cvmfs/pilot.eessi-hpc.org ###"
         ls /cvmfs/pilot.eessi-hpc.org
         echo "### Test cvmfs_config showconfig pilot.eessi-hpc.org ###"
         cvmfs_config showconfig pilot.eessi-hpc.org
-        echo "### Try cvmfs_config probe ###"
-        sudo cvmfs_config probe
