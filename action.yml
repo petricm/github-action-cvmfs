@@ -333,6 +333,7 @@ runs:
   steps:
     - run: |
         if [ "${{ github.run_local_checkout }}" == "true" ]; then
+          echo "WARNING running local checkout of the action !"
           .  setup-cvmfs.sh local
         else
           ${{ github.action_path }}/setup-cvmfs.sh
